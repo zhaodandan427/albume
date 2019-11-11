@@ -1,6 +1,7 @@
 
 import React from 'react';
 import './homepage.scss';
+import Picture from '../../components/homePicture/homePicture';
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -69,12 +70,13 @@ class HomePage extends React.Component {
             <span className={'select'}></span>
           </header>
           <ul className={'sort-wrap'}>
-            <li><span>时间</span><span onClick={this.sortingTime.bind(this)} className={flag0 ? 'showi' : 'hidei'}></span></li>
-            <li><span>评论</span><span onClick={this.sortinCommon.bind(this)} className={flag1 ? 'showi' : 'hidei'}></span></li>
-            <li><span>点赞</span><span onClick={this.sortingPoint.bind(this)} className={flag2 ? 'showi' : 'hidei'}></span></li>
+            <li><span>时间</span><span onClick={this.sortingTime.bind(this)} className={flag0 ? 'hidei' : 'showi'}></span></li>
+            <li><span>评论</span><span onClick={this.sortinCommon.bind(this)} className={flag1 ? 'hidei' : 'showi'}></span></li>
+            <li><span>点赞</span><span onClick={this.sortingPoint.bind(this)} className={flag2 ? 'hidei' : 'showi'}></span></li>
           </ul>
         </div>
         <div className={'content'}>
+          <Picture />
         </div>
       </div>
     )
