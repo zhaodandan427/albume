@@ -1,0 +1,60 @@
+{
+  "code":200,
+  "data": {
+    "index":1,
+    "size":10,
+    "totalElements":60,
+    "elements":[
+      {
+        "type": 4,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 11,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 11,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 9,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 10,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 12,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 11,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 9,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 10,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      },
+      {
+        "type": 4,
+        "integral": 1000,
+        "integralTime": "2019-09-22"
+      }
+    ]
+  }
+}

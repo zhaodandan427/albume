@@ -1,0 +1,93 @@
+.hompage-wrap{
+  width: 100%;
+  display: flex;
+  .homepage-items{
+    width: 100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background: #fff;
+    header{
+      height: 1.94rem;
+      line-height: 1.94rem;
+      background: rgba(253,51,52,1);
+      font-size: .52rem;
+      color:#fff;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      span:nth-child(1){
+       width: 1rem;
+       height: 1rem;
+       background: url('./img/left.png') no-repeat;
+       background-size: 100% 100%;
+       display: block;
+       position: absolute;
+       left:.6rem;
+       top:.5rem
+      }
+      .search{
+        width: .8rem;
+        height: .8rem;
+        background: url('./img/sousuo.png') no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right:1.5rem;
+        top:.6rem
+      }
+      .select{
+        width: .8rem;
+        height:.8rem;
+        background: url('./img/select.png') no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right:.55rem;
+        top:.6rem
+      }
+    }
+    .sort-wrap{
+      height: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom:1px solid rgba(222,222,222,1);
+      li{
+        color:#414042;
+        font-size: .42rem;
+        flex:1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        span:nth-child(1){
+          flex:1;
+          width: 31px;
+          margin-left:42px;
+        }
+        
+        span:nth-child(2){
+          width: .45rem;
+          height:.45rem;
+          background: url('./img/sort.png') no-repeat;
+          // transform: rotate(0deg);
+          background-size: 100% 100%;
+          display: block;
+          margin-right: 30px;
+        }
+        .showi{
+          transform: rotateZ(180deg);
+          transition: transform 0.2s;
+        }
+        .hide i{
+          transform: rotateZ(360deg);
+          transition: transform 0.2s;
+        }
+      }
+    }
+  }
+  .content{
+    flex:1;
+    margin-top: 2.94rem;
+    overflow-y: scroll;
+  }
+  
+}
