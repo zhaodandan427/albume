@@ -1,13 +1,13 @@
 import React from 'react';
-class ManagePhotos extends React.Component {
+class Help extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
   }
   render() {
     return (
-      <div>5555555555</div>
+      <div>3333333333</div>
     )
   }
 }
-export default ManagePhotos;
+export default Help;

@@ -22,6 +22,7 @@ class HomePage extends React.Component {
 
   }
   /*事件--------------------start */
+
   //返回轻应用页面
   goComBack() {
 
@@ -96,27 +97,9 @@ class HomePage extends React.Component {
     this.inputRef.value = '';
     this.deleteRef.style.opacity = 0
   }
+
   /*事件------------------------------end */
-  _tokens = [];
-  _clearTokens() {
-    this._tokens.forEach((token) => token.cancel());
-    this._tokens = [];
-  }
-  componentDidMount() {
-    const me = this;
-    me._tokens.push(api.pictureList.send({
 
-    }).then(res => {
-      if (res.code === 200) {
-        this.pictureList._setData(res.data)
-      }
-    }))
-  }
-
-
-  componentWillUnmount() {
-    this._clearTokens();
-  }
 
   //数据渲染
   render() {
@@ -174,6 +157,28 @@ class HomePage extends React.Component {
         </div>
       </div >
     )
+  }
+
+
+  _tokens = [];
+  _clearTokens() {
+    this._tokens.forEach((token) => token.cancel());
+    this._tokens = [];
+  }
+
+  componentDidMount() {
+    const me = this;
+    me._tokens.push(api.pictureList.send({
+    }).then(res => {
+      if (res.code === 200) {
+        this.pictureList._setData(res.data)
+      }
+    }))
+  }
+
+
+  componentWillUnmount() {
+    this._clearTokens();
   }
 }
 export default HomePage;
