@@ -1,11 +1,17 @@
 .photoBrowsing{
   width: 100%;
+  display: flex;
+  
   header{
+    width: 100%;
     height: 1.94rem;
     line-height: 1.94rem;
     background: #FD3334;
     font-size: .52rem;
     color:#fff;
+    position: fixed;
+    left:0;
+    top:0;
     a{
       width: 1rem;
       height: 1rem;
@@ -61,5 +67,53 @@
     transform: scaleY(0);
     opacity: 0;
     transition: transform 0.2s, opacity 0.1s;
+  }
+  .detail-album{
+    box-sizing: border-box;
+    padding: 1rem;
+    flex:1;
+    margin-top: 1.4rem;
+    p{
+      color:#414042;
+      font-size: .48rem;
+      text-align: left;
+      span{
+        color:#006BC6
+      }
+    }
+    .picture-list{
+      margin-top: .6rem;
+      position: relative;
+      ul{
+        display: flex;
+        flex-wrap:wrap;
+        
+        li{
+          width: 30%;
+          height: 3.2rem;
+          margin-left: .3rem;
+          margin-top: 10px;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+       li:nth-child(9){
+         background:black;
+        
+         img{
+           opacity: 0.4;
+         }
+       }
+        .more{
+          font-size: .52rem;
+          color: #fff;
+          position: absolute;
+          left:8.3rem;
+          top:8.5rem
+
+        }
+      }
+    }
   }
 }
