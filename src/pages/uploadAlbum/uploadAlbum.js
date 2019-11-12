@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 class UploadAlbum extends React.Component {
   constructor(props) {
     super(props);
@@ -6,7 +7,13 @@ class UploadAlbum extends React.Component {
   }
   render() {
     return (
-      <div>66666666</div>
+      <div className={'createAlbum-wrap'}>
+        <header>
+          <Link to={'/'}></Link>
+          上传相册
+        <Link to={'/'}><span>完成</span></Link>
+        </header>
+      </div>
     )
   }
 }
