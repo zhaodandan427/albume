@@ -15,7 +15,7 @@
      font-weight: bold;
      margin-top:.5rem
     }
-    p{
+    div{
       margin-left: 1.4rem;
       margin-top: .2rem;
       span{
@@ -33,6 +33,43 @@
         background: url('./1.png') no-repeat;
         background-size:100% 100%;
         margin-top: .5rem;
+      }
+      .footer-bom{
+        width: 100%;
+        margin-top: .3rem;
+        margin-left:0;
+        font-size: .36rem;
+        position: relative;
+        .comment{
+          margin-left: 4rem;
+          margin-top: -.5rem;
+          i{
+            width: .45rem;
+            height: .45rem;
+            background: url('./comment.png') no-repeat;
+            background-size:100% 100%;
+            display: block;
+            position: absolute;
+            left:3.5rem;
+            top:.04rem
+            
+          }
+        }
+        .fabulous{
+          margin-left: 7.4rem;
+          margin-top: -.5rem;
+          i{
+            width: .45rem;
+            height: .45rem;
+            background: url('./heart.png') no-repeat;
+            background-size:100% 100%;
+            display: block;
+            position: absolute;
+            left:6.9rem;
+            top:.04rem
+            
+          }
+        }
       }
     }
   }

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import './homepage.scss';
+import * as api from '../../components/api/api-homepage';
 import Picture from '../../components/homePicture/homePicture';
 class HomePage extends React.Component {
   constructor(props) {
@@ -56,6 +57,28 @@ class HomePage extends React.Component {
 
     }
   }
+  _tokens = [];
+  _clearTokens() {
+    this._tokens.forEach((token) => token.cancel());
+    this._tokens = [];
+  }
+  componentDidMount() {
+    const me = this;
+    me._tokens.push(api.pictureList.send({
+
+    }).then(res => {
+      if (res.code === 200) {
+        this.pictureList._setData(res.data)
+      }
+    }))
+  }
+
+
+  componentWillUnmount() {
+    this._clearTokens();
+  }
+
+  //数据渲染
   render() {
     const flag0 = this.state.showTime;
     const flag1 = this.state.showCommon;
@@ -76,7 +99,7 @@ class HomePage extends React.Component {
           </ul>
         </div>
         <div className={'content'}>
-          <Picture />
+          <Picture ref={ref => this.pictureList = ref} />
         </div>
       </div>
     )

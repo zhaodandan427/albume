@@ -1,32 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './picture.scss';
 import picture from './1.png';
 class Picture extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        { time: '本周', title: '第十届委员会精彩瞬间指的流年，同志们欢迎点赞评论', img: '' },
-        // { time: '8月', title: '第十届委员会精彩瞬间指的流年，同志们欢迎点赞评论', img: '' },
-        // { time: '7月', title: '第十届委员会精彩瞬间指的流年，同志们欢迎点赞评论', img: '' },
-        // { time: '6月', title: '第十届委员会精彩瞬间指的流年，同志们欢迎点赞评论', img: '' },
-      ]
+
     }
 
   }
-  routerTo(v) {
-    console.log(this.props)
-    this.props.history.push({ pathname: `/photoBrowsing` })
+  _setData(d) {
+    this.setState({
+      data: d
+    })
   }
   _addList() {
-    // if (!this.state.data) { return };
+    if (!this.state.data) { return };
     return this.state.data.map((s, i) => {
       return <li key={'jx' + i}>
-        <h3>{s.time}</h3>
-        <p>
+        <h3>{s.date}</h3>
+        <div>
           <span>{s.title}</span>
-          <img alt='' src={picture} onClick={() => this.routerTo(i)} />
-        </p>
+          <Link to={{
+            pathname: `/photoBrowsing/${i}`,
+            state: 'hello',
+          }}><img alt='' src={picture} />
+          </Link>
+          <div className={'footer-bom'}>
+            <span className={'timer'}>{s.time}</span>
+            <span className={'comment'}><i></i>评论 ({s.comment})</span>
+            <span className={'fabulous'}><i></i>点赞 ({s.fabulous})</span>
+          </div>
+        </div>
       </li>
     })
   }
