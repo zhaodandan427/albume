@@ -5,10 +5,7 @@ import picture from './1.png';
 class Picture extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
-
+    this.state = {}
   }
   _setData(d) {
     this.setState({
