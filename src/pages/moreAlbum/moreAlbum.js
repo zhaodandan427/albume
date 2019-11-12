@@ -1,8 +1,8 @@
 //相册浏览
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './photoBrowsing.scss';
-import bg1 from './1.jpg';
+import bg1 from '../photoBrowsing/1.jpg';
+
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -23,15 +23,7 @@ class PhotoBrowsing extends React.Component {
       show: flag
     })
   }
-  //点击全文
-  all() {
-    this.text.innerHTML = '活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活'
-    this._all.style.opacity = 0
-  }
-  //点击更多
-  moreClick() {
 
-  }
   /*事件-----------------------end*/
   render() {
     const flag = this.state.show;
@@ -39,7 +31,9 @@ class PhotoBrowsing extends React.Component {
     return (
       <div className={'photoBrowsing'}>
         <header>
-          <Link to='/'></Link>
+          <Link to={{
+            pathname: `/photoBrowsing/${id}`
+          }}></Link>
           相册浏览
           <span onClick={this.select.bind(this)}></span>
         </header>
@@ -54,27 +48,25 @@ class PhotoBrowsing extends React.Component {
             }
           </ul>
         </div>
-        <div className={'detail-album'} ref={ref => this.detailAlbum = ref} style={{
-          display: 'block'
-        }}>
-          <p ref={ref => this.text = ref}>活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活...
-            <span ref={ref => this._all = ref}
-              style={{
-                opacity: 1
-              }}
-              onClick={this.all.bind(this)}>全文</span>
-          </p>
-          <div className={'picture-list'}>
+        <div className={'picture-detail'}>
+          <div>
+            <h3>本周</h3>
             <ul>
               {
                 this.state.data.map((s, i) => {
-                  return <li key={'js' + i}><img src={bg1} alt='' /></li>
+                 return <li key={'js' + i}><img src={bg1} alt='' /></li>
                 })
               }
-
-              < span className={'more'}><Link to={{
-                pathname: `/moreAlbum/${id}`,
-              }}>更多</Link></span>
+            </ul>
+          </div>
+          <div>
+            <h3>本月</h3>
+            <ul>
+              {
+                this.state.data.map((s, i) => {
+                 return <li key={'js' + i}><img src={bg1} alt='' /></li>
+                })
+              }
             </ul>
           </div>
         </div>

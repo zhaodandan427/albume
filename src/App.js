@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, HashRouter , Switch } from 'react-router-dom';
+import { Route, HashRouter, Switch } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage';
 import PhotoBrowsing from './pages/photoBrowsing/photoBrowsing';
 import CreateAlbum from './pages/createAlbum/createAlbum';
@@ -8,6 +8,7 @@ import Help from './pages/help/help';
 import GarbageBasket from './pages/garbageBasket/garbageBasket';
 import UploadAlbum from './pages/uploadAlbum/uploadAlbum';
 import ManagePhotos from './pages/managePhotos/managePhotos';
+import MoreAlbum from './pages/moreAlbum/moreAlbum'
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
           <Route path="/garbageBasket" component={GarbageBasket} />
           <Route path="/uploadAlbum" component={UploadAlbum} />
           <Route path="/managePhotos" component={ManagePhotos} />
+          <Route path="/moreAlbum/:id" component={MoreAlbum} />
         </Switch>
       </HashRouter>
 
