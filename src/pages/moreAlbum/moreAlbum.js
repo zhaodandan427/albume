@@ -8,7 +8,16 @@ class PhotoBrowsing extends React.Component {
     super(props);
     this.state = {
       show: false,
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      data: [
+        {
+          name: '本周',
+          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        },
+        {
+          name: '本月',
+          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        },
+      ]
     };
     this.list = [
       { name: '上传照片', pathname: 'uploadAlbum' },
@@ -49,26 +58,21 @@ class PhotoBrowsing extends React.Component {
           </ul>
         </div>
         <div className={'picture-detail'}>
-          <div>
-            <h3>本周</h3>
-            <ul>
-              {
-                this.state.data.map((s, i) => {
-                 return <li key={'js' + i}><img src={bg1} alt='' /></li>
-                })
-              }
-            </ul>
-          </div>
-          <div>
-            <h3>本月</h3>
-            <ul>
-              {
-                this.state.data.map((s, i) => {
-                 return <li key={'js' + i}><img src={bg1} alt='' /></li>
-                })
-              }
-            </ul>
-          </div>
+          {
+            this.state.data.map((s, i) => {
+              return <div key={'js' + i}>
+                <h3>{s.name}</h3>
+                <ul>
+                  {
+                    s.lists.map((item, j) => {
+                      return <li key={'js' + j}><img src={bg1} alt='' /></li>
+                    })
+                  }
+                </ul>
+              </div>
+            })
+          }
+          <div className={'loading'}><i></i><span>加载中</span></div>
         </div>
       </div >
     )

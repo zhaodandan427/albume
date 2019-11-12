@@ -39,6 +39,7 @@ class Picture extends React.Component {
         <ul className={'content-area'}>
           {this._addList()}
         </ul>
+        <div className={'loading'}><i></i><span>加载中</span></div>
       </div>
     )
   }

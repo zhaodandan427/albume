@@ -73,4 +73,24 @@
       }
     }
   }
+  
+}
+.loading{
+  font-size: .48rem;
+  color:#BCBEC0;
+  margin-top: .5rem;
+  position: relative;
+  i{
+    width: .5rem;
+    height: .5rem;
+    background: url('/static/img/loading.gif') no-repeat;
+    background-size: 100% 100%;
+    display: block;
+    position: absolute;
+    left:40%;
+    top:.1rem;
+  }
+  span{
+    margin-left: .5rem;
+  }
 }
