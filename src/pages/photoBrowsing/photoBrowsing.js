@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './photoBrowsing.scss';
 import bg1 from './1.jpg';
+import LikeBtn from '../../components/point/point'
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +31,10 @@ class PhotoBrowsing extends React.Component {
   }
   //点击更多
   moreClick() {
+
+  }
+  //点击评论
+  commentClick() {
 
   }
   /*事件-----------------------end*/
@@ -71,14 +76,23 @@ class PhotoBrowsing extends React.Component {
                   return <li key={'js' + i}><img src={bg1} alt='' /></li>
                 })
               }
-
               < span className={'more'}><Link to={{
                 pathname: `/moreAlbum/${id}`,
               }}>更多</Link></span>
             </ul>
           </div>
+          <div className={'comment-wrap'}>
+            <h4 className={'timer'}>2019-10-12</h4>
+            <div className={'comment-like'}>
+              <span className={'commentslist'} onClick={this.commentClick.bind(this)}>评论(1000)</span>
+              <LikeBtn />
+            </div>
+            <div className={'dialog-content'}>
+
+            </div>
+          </div>
         </div>
-      </div >
+      </div>
     )
   }
 }

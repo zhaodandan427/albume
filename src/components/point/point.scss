@@ -1,0 +1,16 @@
+.like-items{
+  width: 100%;
+  position: absolute;
+  left:-5.5rem;
+  top:.7rem;
+  ul{
+    display: flex;
+    width: 100%;
+    li{
+      flex:1;
+      width: 100%;
+      font-size:.42rem;
+      color:#006BC6
+    }
+  }
+}
