@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './photoBrowsing.scss';
 import bg1 from './1.jpg';
-import LikeBtn from '../../components/point/point'
+import LikeBtn from '../../components/point/point';
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -84,15 +84,16 @@ class PhotoBrowsing extends React.Component {
           <div className={'comment-wrap'}>
             <h4 className={'timer'}>2019-10-12</h4>
             <div className={'comment-like'}>
-              <span className={'commentslist'} onClick={this.commentClick.bind(this)}>评论(1000)</span>
-              <LikeBtn />
+              <span className={'comment-items'}><i></i>评论(1000)</span>
+              <input />
+              {/* <LikeBtn /> */}
             </div>
             <div className={'dialog-content'}>
 
             </div>
           </div>
         </div>
-      </div>
+      </div >
     )
   }
 }
