@@ -37,6 +37,10 @@ class PhotoBrowsing extends React.Component {
   commentClick() {
 
   }
+
+  inputBlurHandle() {
+
+  }
   /*事件-----------------------end*/
   render() {
     const flag = this.state.show;
@@ -80,18 +84,46 @@ class PhotoBrowsing extends React.Component {
                 pathname: `/moreAlbum/${id}`,
               }}>更多</Link></span>
             </ul>
+
           </div>
           <div className={'comment-wrap'}>
             <h4 className={'timer'}>2019-10-12</h4>
             <div className={'comment-like'}>
               <span className={'comment-items'}><i></i>评论(1000)</span>
-              <input />
-              {/* <LikeBtn /> */}
+              <input onBlur={this.inputBlurHandle} />
+              <LikeBtn />
             </div>
-            <div className={'dialog-content'}>
-
-            </div>
+           
           </div>
+          <div className={'dialog-content'}>
+              <p>张委员</p>
+              <ul>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+                <li>李委员说：xxxxxxxxxx</li>
+              </ul>
+            </div>
         </div>
       </div >
     )

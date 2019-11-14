@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Upload from '../../components/upload/upload'
 class UploadAlbum extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class UploadAlbum extends React.Component {
           上传相册
         <Link to={'/'}><span>完成</span></Link>
         </header>
+        {/* <Upload /> */}
       </div>
     )
   }
