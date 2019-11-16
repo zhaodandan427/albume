@@ -154,6 +154,26 @@
       }
       
     }
+    .comment-wrap-list{
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: .5rem;
+      .comment-content-list{
+         display:flex;
+         flex-direction: column;
+         li{
+           flex:1;
+           margin-top: .2rem;
+           text-align: left;
+           color:rgba(35,31,32,1);
+           span:nth-child(1){
+             color:rgba(0,107,198,1);
+             font-size: .42rem;
+           }
+         }
+      }
+    
+    }
     .dialog-content{
       width: 100%;
       border-radius: .1rem;

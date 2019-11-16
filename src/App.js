@@ -8,7 +8,8 @@ import Help from './pages/help/help';
 import GarbageBasket from './pages/garbageBasket/garbageBasket';
 import UploadAlbum from './pages/uploadAlbum/uploadAlbum';
 import ManagePhotos from './pages/managePhotos/managePhotos';
-import MoreAlbum from './pages/moreAlbum/moreAlbum'
+import MoreAlbum from './pages/moreAlbum/moreAlbum';
+import Comment from './pages/photoBrowsing/comment/comment';
 function App() {
   return (
     <div className="App">
@@ -16,12 +17,14 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/photoBrowsing/:id" component={PhotoBrowsing} />
+          <Route path="/comment/:id" component={Comment} />
           <Route path="/createAlbum" component={CreateAlbum} />
           <Route path="/help" component={Help} />
           <Route path="/garbageBasket" component={GarbageBasket} />
           <Route path="/uploadAlbum" component={UploadAlbum} />
           <Route path="/managePhotos" component={ManagePhotos} />
           <Route path="/moreAlbum/:id" component={MoreAlbum} />
+
         </Switch>
       </HashRouter>
 

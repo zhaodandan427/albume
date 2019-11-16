@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './photoBrowsing.scss';
 import bg1 from './1.jpg';
 import LikeBtn from '../../components/point/point';
+import { relativeTimeThreshold } from 'moment';
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -29,18 +30,43 @@ class PhotoBrowsing extends React.Component {
     this.text.innerHTML = '活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活'
     this._all.style.opacity = 0
   }
-  //点击更多
-  moreClick() {
-
-  }
   //点击评论
   commentClick() {
 
   }
+  _addList() {
+    const me = this;
+    let data = [{
+      name: '张委员',
+      content: '本次活动收益颇多，值得学习贯主席委员会精神'
+    }, {
+      name: '李委员',
+      content: '老张本次发言很精彩哇'
+    }, {
+      name: '李委员',
+      content: '老张本次发言很精彩哇'
+    },
+    {
+      name: '张委员',
+      content: '为人民服务，贯彻党的政策'
+    }, {
+      name: '李委员',
+      content: '老张本次发言很精彩哇'
+    }, {
+      name: '李委员',
+      content: '老张本次发言很精彩哇'
+    }];
+    if (!data) { return }
 
-  inputBlurHandle() {
-
+    return data.map((s, i) => {
+      return <li key={'jx' + i}>
+        <span>{s.name}: </span>
+        <span>{s.content}</span>
+      </li>
+    })
   }
+
+
   /*事件-----------------------end*/
   render() {
     const flag = this.state.show;
@@ -89,41 +115,17 @@ class PhotoBrowsing extends React.Component {
           <div className={'comment-wrap'}>
             <h4 className={'timer'}>2019-10-12</h4>
             <div className={'comment-like'}>
-              <span className={'comment-items'}><i></i>评论(1000)</span>
-              <input onBlur={this.inputBlurHandle} />
+              <span className={'comment-items'} ><Link to={{
+                pathname: `/comment/${id}`
+              }}><i></i>评论(1000)</Link></span>
               <LikeBtn />
             </div>
-           
           </div>
-          <div className={'dialog-content'}>
-              <p>张委员</p>
-              <ul>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-                <li>李委员说：xxxxxxxxxx</li>
-              </ul>
-            </div>
+          <div className={'comment-wrap-list'}>
+            <ul className={'comment-content-list'}>
+              {this._addList()}
+            </ul>
+          </div>
         </div>
       </div >
     )
