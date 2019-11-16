@@ -33,6 +33,14 @@
       }
     }
   }
+  .createAlbum-content{
+    margin-top: 2rem;
+    box-sizing: border-box;
+    padding: .5rem;
+    .album-description{
+      text-align: left;
+    }
+  }
 }
 //评论页
 .comment-finished{
@@ -40,4 +48,5 @@
   .comment-content{
     margin-top: 2rem;
   }
+  
 }
