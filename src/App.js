@@ -10,6 +10,7 @@ import UploadAlbum from './pages/uploadAlbum/uploadAlbum';
 import ManagePhotos from './pages/managePhotos/managePhotos';
 import MoreAlbum from './pages/moreAlbum/moreAlbum';
 import Comment from './pages/photoBrowsing/comment/comment';
+import Jurisdiction from './pages/jurisdiction/jurisdiction';
 function App() {
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function App() {
           <Route path="/uploadAlbum" component={UploadAlbum} />
           <Route path="/managePhotos" component={ManagePhotos} />
           <Route path="/moreAlbum/:id" component={MoreAlbum} />
-
+          <Route path="/jurisdiction" component={Jurisdiction} />
         </Switch>
       </HashRouter>
 

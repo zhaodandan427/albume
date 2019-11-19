@@ -36,9 +36,43 @@
   .createAlbum-content{
     margin-top: 2rem;
     box-sizing: border-box;
+    flex:1;
     padding: .5rem;
     .album-description{
       text-align: left;
+      .image-picker{
+        margin: .3rem .6rem;
+      }
+    }
+    .album-face{
+     text-align: left;
+     color:#414042;
+     font-size: .48rem;
+     .up-load{
+       width: 4.8rem;
+       height: 3.2rem;
+       border: 1px dashed #ccc;
+       margin: 0 auto;
+     }
+    }
+    .jurisdiction{
+      text-align: left;
+     color:#414042;
+     font-size: .48rem;
+     margin-top: .5rem;
+     position: relative;
+     span{
+        position: absolute;
+        right:0;
+        top:.1rem;
+       a{
+         width: .6rem;
+         height: .6rem;
+         background: url("/static/img/right.png") no-repeat;
+         background-size: 100% 100%;
+         display: block;
+       }
+     }
     }
   }
 }
@@ -49,4 +83,27 @@
     margin-top: 2rem;
   }
   
+}
+.ant-upload-list ant-upload-list-picture-card>
+.ant-upload-list-picture .ant-upload-list-item, .ant-upload-list-picture-card .ant-upload-list-item{
+    border: none !important; 
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+.ant-upload-list-picture-card .ant-upload-list-item{
+  width: 3rem !important;
+  height:3rem !important;
+  margin: 0 .4rem .5rem 0 !important;
+}
+.ant-upload-list-item-actions>a{
+    display: none ;
+}
+.ant-upload-list-item-actions i{
+
+}
+.ant-upload-list-picture-card .ant-upload-list-item-info::before{
+  pointer-events: none;
+}
+.anticon{
+  font-size:1rem;
 }

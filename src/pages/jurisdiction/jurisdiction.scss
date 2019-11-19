@@ -1,0 +1,55 @@
+.jurisdiction-wrap{
+  .jurisdiction-content{
+    flex:1;
+    margin-top: 2rem;
+    font-size: .48rem;
+    color:#414042;
+    text-align: left;
+    .radio-wrap{
+      display: flex;
+      flex-direction: column;
+      div:nth-child(1){
+        border-bottom:1px solid #DEDEDE;
+      }
+      div:nth-child(2){
+        border-bottom:1px solid #DEDEDE;
+      }
+      div{
+        width: 100%;
+        position: relative;
+        padding: .5rem;
+        input{
+          width: .7rem;
+          height: .7rem;
+          border-radius: 100%;
+          outline: none;
+          background:rgba(255,255,255,1);
+          border:1px solid rgba(222, 222, 222, 1);
+          margin-top: 1rem;
+          margin-left: 0rem;
+        }
+        p{
+          position: absolute;
+          left:2rem;
+          top:0.8rem
+        }
+      }
+    }
+    .choick-list{
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-left: 2.3rem;
+      li{
+        flex:1;
+        
+        height:2.4rem;
+        line-height: 2.4rem;
+        border-bottom: 1px solid #DEDEDE;
+        
+      }
+    }
+  }
+}
