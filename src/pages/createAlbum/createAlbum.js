@@ -21,7 +21,10 @@ class CreateAlbum extends React.Component {
         </header>
         <div className={'createAlbum-content'}>
           <div className={'album-description'}>
-            <div>xx相册介绍</div>
+            <div style={{
+              fontSize:'.48rem',
+              color:'#414042'
+            }}>xx相册介绍</div>
             <div className={'image-picker'}>
               <PicturesWall />
             </div>

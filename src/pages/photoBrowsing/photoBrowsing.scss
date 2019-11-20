@@ -107,7 +107,7 @@
        .more{
         a{
           font-size: .52rem;
-          color: #fff;
+          color: #fff !important;
           position: absolute;
           left:9.2rem;
           top:12.8rem
@@ -214,4 +214,7 @@
       }
     }
   }
+}
+.anticon {
+  font-size:.36rem !important
 }

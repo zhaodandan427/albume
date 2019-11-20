@@ -16,14 +16,10 @@ class LikeBtn extends React.Component {
 
     if (liked) {
       if (liked === 'like') {
-
         this.setState({ liked: null })
         this.setState({ like: this.state.like - 1 });
-
-
       }
       else {
-
         this.setState({ liked: 'like' });
         this.setState({ like: this.state.like + 1, });
       }
@@ -40,8 +36,7 @@ class LikeBtn extends React.Component {
   render() {
     return (
       <div>
-        <Icon onClick={this.islike} type='heart' theme={this.state.liked === 'like' ? 'filled' : ''} />点赞({this.state.like})
-
+        <Icon onClick={this.islike} type='heart' theme={this.state.liked === 'like' ? 'filled' : ''} /> 点赞({this.state.like})
       </div>
     );
   }

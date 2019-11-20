@@ -89,6 +89,7 @@
     flex:1;
     margin-top: 2.94rem;
     overflow-y: scroll;
+    background: #fff;
   }
   .dialog-wrap{
     position: absolute;
@@ -119,16 +120,7 @@
       }
     }
   }
-  .slidedown {
-    transform: scaleY(1);
-    opacity: 1;
-    transition: transform 0.2s, opacity 0.1s;
-  }
-  .slideup {
-    transform: scaleY(0);
-    opacity: 0;
-    transition: transform 0.2s, opacity 0.1s;
-  }
+ 
   .search-wrap{
     width: 100%;
     height: 1.94rem;
@@ -201,4 +193,16 @@
           margin-top: -.5rem;
         }
       }
+}
+
+
+.slidedown {
+  transform: scaleY(1);
+  opacity: 1;
+  transition: transform 0.2s, opacity 0.1s;
+}
+.slideup {
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.1s;
 }

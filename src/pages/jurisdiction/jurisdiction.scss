@@ -1,4 +1,5 @@
 .jurisdiction-wrap{
+  width: 100%;
   .jurisdiction-content{
     flex:1;
     margin-top: 2rem;
@@ -27,7 +28,10 @@
           border:1px solid rgba(222, 222, 222, 1);
           margin-top: 1rem;
           margin-left: 0rem;
+          z-index: 2
         }
+       
+        
         p{
           position: absolute;
           left:2rem;
@@ -44,12 +48,51 @@
       padding-left: 2.3rem;
       li{
         flex:1;
-        
         height:2.4rem;
         line-height: 2.4rem;
         border-bottom: 1px solid #DEDEDE;
-        
+        a{
+          color:#414042
+        }
       }
     }
   }
 }
+.mailList-wrap,.meeting-wrap{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  .mailList-content,.meeting-content{
+    overflow-y: scroll;
+    flex:1;
+    margin-top: 2rem;
+   
+  }
+}
+.am-accordion-header{
+  text-align: left;
+}
+.arrow{
+  position: absolute;
+  left:.2rem;
+  top:1rem
+}
+.am-accordion .am-accordion-item .am-accordion-header{
+  padding-left: 1rem !important;
+}
+.am-list-item am-checkbox-item am-list-item-middle{
+  position: absolute !important;
+  left:1rem !important
+}
+.am-list-item {
+  min-height:2rem !important;
+}
+.am-list-thumb{
+  position: absolute;
+  right:1rem;
+  margin-top:-1rem
+}
+.am-checkbox-inner{
+  border:1px solid #414042 !important
+}
+

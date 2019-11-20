@@ -13,6 +13,7 @@
     font-size: .52rem;
     color:#fff;
     text-align: center;
+    z-index: 99;
     a{
       width: 1rem;
       height: 1rem;
@@ -106,4 +107,10 @@
 }
 .anticon{
   font-size:1rem;
+}
+
+//上传相册
+.createAlbum-content{
+  flex:1;
+  margin-top: 2rem;
 }
