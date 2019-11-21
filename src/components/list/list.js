@@ -6,7 +6,7 @@ export default class AccordionExmple extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chooseAll: true,
+      chooseAll: false,
       data: [
         {
           title: 'A组织部门', childs: [
@@ -32,7 +32,7 @@ export default class AccordionExmple extends React.Component {
     }
   }
   checkoutChange = (e, val) => {
-    this.props.changValues(e, val)
+    this.props.changvalues(e, val)
 
   }
   chooseAll() {
@@ -41,12 +41,13 @@ export default class AccordionExmple extends React.Component {
   render() {
     return (
       <div style={{ marginTop: 10, marginBottom: 10 }} className={'chosice-wrap'}>
+
         {
+
           this.state.data.map((s, i) => {
             return <Accordion key={'jx' + i} defaultActiveKey="0" className="my-accordion" >
-              
+
               <Accordion.Panel header={s.title}>
-              <input type="checkbox" value="bsball" />
                 <List className="my-list">
                   <List.Item>
                     {
@@ -82,14 +83,14 @@ export default class AccordionExmple extends React.Component {
                   </List.Item>
                 </List>
               </Accordion.Panel>
-
+             
             </Accordion>
           })
         }
 
 
 
-      </div>
+      </div >
     );
   }
 }

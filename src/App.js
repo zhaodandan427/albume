@@ -24,8 +24,8 @@ function App() {
           <Route path="/createAlbum" component={CreateAlbum} />
           <Route path="/help" component={Help} />
           <Route path="/garbageBasket" component={GarbageBasket} />
-          <Route path="/uploadAlbum" component={UploadAlbum} />
-          <Route path="/managePhotos" component={ManagePhotos} />
+          <Route path="/uploadAlbum/:id" component={UploadAlbum} />
+          <Route path="/managePhotos/:id" component={ManagePhotos} />
           <Route path="/moreAlbum/:id" component={MoreAlbum} />
           <Route path="/jurisdiction" component={Jurisdiction} />
           <Route path="/mailList" component={MailList} />

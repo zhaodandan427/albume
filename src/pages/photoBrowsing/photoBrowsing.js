@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './photoBrowsing.scss';
 import bg1 from './1.jpg';
 import LikeBtn from '../../components/point/point';
-import { relativeTimeThreshold } from 'moment';
+
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ class PhotoBrowsing extends React.Component {
 
   }
   _addList() {
-    const me = this;
+
     let data = [{
       name: '张委员',
       content: '本次活动收益颇多，值得学习贯主席委员会精神'
@@ -83,7 +83,7 @@ class PhotoBrowsing extends React.Component {
             {
               this.list.map((s, i) => {
                 return <li key={'zl' + i}>
-                  <Link to={`/${s.pathname}`}>{s.name}</Link>
+                  <Link to={`/${s.pathname}/${id}`}>{s.name}</Link>
                 </li>
               })
             }

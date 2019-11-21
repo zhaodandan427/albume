@@ -7,12 +7,17 @@ class UploadAlbum extends React.Component {
     this.state = {}
   }
   render() {
+    let id = this.props.match.params.id;
     return (
       <div className={'createAlbum-wrap'}>
         <header>
-          <Link to={'/'}></Link>
+          <Link to={{
+            pathname: `/photoBrowsing/${id}`
+          }}></Link>
           上传相册
-        <Link to={'/'}><span>完成</span></Link>
+        <Link to={{
+            pathname: `/photoBrowsing/${id}`
+          }}><span>完成</span></Link>
         </header>
         <div className={'createAlbum-content'}>
           <Upload />
