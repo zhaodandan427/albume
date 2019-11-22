@@ -117,17 +117,7 @@ class HomePage extends React.Component {
             <span>活动相册</span>
             <span className={'search'} onClick={this.search.bind(this)}></span>
             <span className={'select'} onClick={this.select.bind(this)}></span>
-          </header>
-          <ul className={'sort-wrap'}>
-            <li><span>时间</span><span onClick={this.sortingTime.bind(this)} className={flag0 ? 'hidei' : 'showi'}></span></li>
-            <li><span>评论</span><span onClick={this.sortinCommon.bind(this)} className={flag1 ? 'hidei' : 'showi'}></span></li>
-            <li><span>点赞</span><span onClick={this.sortingPoint.bind(this)} className={flag2 ? 'hidei' : 'showi'}></span></li>
-          </ul>
-        </div>
-        <div className={'content'}>
-          <Picture ref={ref => this.pictureList = ref} />
-        </div>
-        <div className={`dialog-wrap ${flag ? 'slidedown' : 'slideup'} `} >
+            <div className={`dialog-wrap ${flag ? 'slidedown' : 'slideup'} `} >
           <ul>
             {
               this.list.map((s, i) => {
@@ -138,6 +128,17 @@ class HomePage extends React.Component {
             }
           </ul>
         </div>
+          </header>
+          <ul className={'sort-wrap'}>
+            <li><span>时间</span><span onClick={this.sortingTime.bind(this)} className={flag0 ? 'hidei' : 'showi'}></span></li>
+            <li><span>评论</span><span onClick={this.sortinCommon.bind(this)} className={flag1 ? 'hidei' : 'showi'}></span></li>
+            <li><span>点赞</span><span onClick={this.sortingPoint.bind(this)} className={flag2 ? 'hidei' : 'showi'}></span></li>
+          </ul>
+        </div>
+        <div className={'content'}>
+          <Picture ref={ref => this.pictureList = ref} />
+        </div>
+        
         <div className={'search-wrap'} ref={ref => this.searchWrap = ref} style={{
           display: 'none'
         }}>
@@ -151,7 +152,6 @@ class HomePage extends React.Component {
             style={{ opacity: 0 }}
             onClick={this.clear.bind(this)}
           >
-
           </span>
           <span onClick={this.cancel.bind(this)}>取消</span>
         </div>

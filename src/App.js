@@ -13,6 +13,7 @@ import Comment from './pages/photoBrowsing/comment/comment';//评论
 import Jurisdiction from './pages/jurisdiction/jurisdiction';//权限----谁可以看
 import MailList from './pages/jurisdiction/mailList/mailList';//从通讯录中选择
 import Meeting from './pages/jurisdiction/meeting/meeting';//从会议中选择
+import DeleteThoroughly from './pages/deleteThoroughly/deleteThoroughly';//永久删除
 function App() {
   return (
     <div className="App">
@@ -30,6 +31,7 @@ function App() {
           <Route path="/jurisdiction" component={Jurisdiction} />
           <Route path="/mailList" component={MailList} />
           <Route path="/meeting" component={Meeting} />
+          <Route path="/deleteThoroughly/:id" component={DeleteThoroughly} />
         </Switch>
       </HashRouter>
 

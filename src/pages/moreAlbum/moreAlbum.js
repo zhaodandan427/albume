@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import bg1 from '../photoBrowsing/1.jpg';
-
+import IscrollLuo from 'iscroll-luo';
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -32,13 +32,44 @@ class PhotoBrowsing extends React.Component {
       show: flag
     })
   }
+  onDown() {
+    this.setState({
+      data: [
+        {
+          name: '本周',
+          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        },
+        {
+          name: '本月',
+          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        },
+      ]
+    });
+  }
+
+  onUp() {
+    this.setState({
+      data: [
+        ...this.state.data,
+        {
+          name: '本周',
+          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        },
+        {
+          name: '本月',
+          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        },
+      ]
+
+    });
+  }
 
   /*事件-----------------------end*/
   render() {
     const flag = this.state.show;
     let id = this.props.match.params.id;
     return (
-      <div className={'photoBrowsing'}>
+      <div className={'more-album'}>
         <header>
           <Link to={{
             pathname: `/photoBrowsing/${id}`
@@ -51,28 +82,35 @@ class PhotoBrowsing extends React.Component {
             {
               this.list.map((s, i) => {
                 return <li key={'zl' + i}>
-                  <Link to={`/${s.pathname}`}>{s.name}</Link>
+                  <Link to={`/${s.pathname}/${id}`}>{s.name}</Link>
                 </li>
               })
             }
           </ul>
         </div>
         <div className={'picture-detail'}>
-          {
-            this.state.data.map((s, i) => {
-              return <div key={'js' + i}>
-                <h3>{s.name}</h3>
-                <ul>
-                  {
-                    s.lists.map((item, j) => {
-                      return <li key={'js' + j}><img src={bg1} alt='' /></li>
-                    })
-                  }
-                </ul>
-              </div>
-            })
-          }
-          <div className={'loading'}><i></i><span>加载中</span></div>
+          <IscrollLuo
+            id='test'
+            onPullDownRefresh={() => this.onDown()}
+            onPullUpLoadMore={() => this.onUp()}
+          >
+            {
+              this.state.data.map((s, i) => {
+                return <div key={'js' + i}>
+                  <h3>{s.name}</h3>
+                  <ul>
+                    {
+                      s.lists.map((item, j) => {
+                        return <li key={'js' + j}><img src={bg1} alt='' /></li>
+                      })
+                    }
+                  </ul>
+                </div>
+              })
+            }
+
+          </IscrollLuo>
+
         </div>
       </div >
     )

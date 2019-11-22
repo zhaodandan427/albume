@@ -31,42 +31,7 @@
       top:.6rem
     }
   }
-  .dialog-wrap{
-    position: absolute;
-    right:.7rem;
-    top:1.6rem;
-    z-index: 199;
-    ul{
-      width: 4.5rem;
-      height: 4.5rem;
-      background:rgba(255,255,255,1);
-      box-shadow:0px 0px .2rem 0px rgba(0, 0, 0, 0.3);
-      border-radius:.2rem ;
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-      padding-top:.5rem;
-      justify-content: center;
-      li{
-        height: 1.5rem;
-        line-height: 1.5rem;
-        color: #414042;
-        font-size: .48rem;
-        flex:1;
-        border-bottom: 1px solid #dedede
-      }
-    }
-  }
-  .slidedown {
-    transform: scaleY(1);
-    opacity: 1;
-    transition: transform 0.2s, opacity 0.1s;
-  }
-  .slideup {
-    transform: scaleY(0);
-    opacity: 0;
-    transition: transform 0.2s, opacity 0.1s;
-  }
+  
   .detail-album{
     box-sizing: border-box;
     padding: 1rem;
@@ -189,11 +154,56 @@
       }
     }
   }
+ 
+}
+.anticon {
+  font-size:.36rem !important
+}
+//更多相册
+.more-album{
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: .5rem;
+  header{
+    width: 100%;
+    height: 1.94rem;
+    line-height: 1.94rem;
+    background: #FD3334;
+    font-size: .52rem;
+    color:#fff;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 100;
+    a{
+      width: 1rem;
+      height: 1rem;
+      background: url('/static/img/left.png') no-repeat;
+      background-size:100% 100%;
+      display: block;
+      position: absolute;
+      left:.6rem;
+      top:.5rem
+    }
+    span{
+      width: .8rem;
+      height:.8rem;
+      background: url('/static/img/select.png') no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      right:.55rem;
+      top:.6rem
+    }
+  }
   .picture-detail{
-    box-sizing: border-box;
-    padding:2.5rem .5rem;
     color:#414042;
     font-size: .42rem;
+    flex:1;
+    margin-top: 3rem;
+    z-index:0;
+    position: relative;
+    
     h3{
       margin-left: -10rem;
       margin-top: -.2rem;
@@ -213,8 +223,7 @@
           }
       }
     }
+    
   }
 }
-.anticon {
-  font-size:.36rem !important
-}
+//头部公用

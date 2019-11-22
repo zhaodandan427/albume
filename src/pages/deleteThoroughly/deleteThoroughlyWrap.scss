@@ -1,0 +1,53 @@
+.deleteThoroughly-wrap{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  .deleteThoroughly-content{
+    flex:1;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+  footer{
+    width: 100%;
+    position: fixed;
+    left:0;
+    bottom:0;
+    border-top:1px solid #ccc;
+    height: 1.8rem;
+    
+    background: #f2f2f2;
+    ul{
+      display:flex;
+
+      li{
+        flex:1;
+        font-size:.36rem;
+        color:#000000;
+        margin-top: 1.2rem;
+      }
+      li:nth-child(1)::before{
+        content:'';
+        width: .6rem;
+        height: .6rem;
+        display: block;
+        background: url('/static/img/delete.png') no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        left:2.8rem;
+        top:.4rem
+      }
+      li:nth-child(2)::before{
+        content:'';
+        width: .6rem;
+        height: .6rem;
+        display: block;
+        background: url('/static/img/recovery.png') no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right:2.8rem;
+        top:.4rem
+      }
+    }
+
+  }
+}

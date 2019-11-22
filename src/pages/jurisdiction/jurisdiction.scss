@@ -9,6 +9,8 @@
     .radio-wrap{
       display: flex;
       flex-direction: column;
+       justify-content: center;
+       align-items: center;
       div:nth-child(1){
         border-bottom:1px solid #DEDEDE;
       }

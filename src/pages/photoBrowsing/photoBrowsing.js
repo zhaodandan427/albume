@@ -77,18 +77,19 @@ class PhotoBrowsing extends React.Component {
           <Link to='/'></Link>
           相册浏览
           <span onClick={this.select.bind(this)}></span>
+          
         </header>
         <div className={`dialog-wrap ${flag ? 'slidedown' : 'slideup'} `} >
-          <ul>
-            {
-              this.list.map((s, i) => {
-                return <li key={'zl' + i}>
-                  <Link to={`/${s.pathname}/${id}`}>{s.name}</Link>
-                </li>
-              })
-            }
-          </ul>
-        </div>
+            <ul>
+              {
+                this.list.map((s, i) => {
+                  return <li key={'zl' + i}>
+                    <Link to={`/${s.pathname}/${id}`}>{s.name}</Link>
+                  </li>
+                })
+              }
+            </ul>
+          </div>
         <div className={'detail-album'} ref={ref => this.detailAlbum = ref} style={{
           display: 'block'
         }}>

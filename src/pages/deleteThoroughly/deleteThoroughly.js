@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './garbageBasket.scss';
 import * as api from '../../components/api/api-homepage';
-import DeletePicture from '../../components/deletePicture/deletePicture';
-class GarbageBasket extends React.Component {
+import './deleteThoroughlyWrap.scss';
+class DeleteThoroughly extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -16,12 +15,7 @@ class GarbageBasket extends React.Component {
 
   componentDidMount() {
     const me = this;
-    me._tokens.push(api.pictureList.send({
-    }).then(res => {
-      if (res.code === 200) {
-        this.deletePictureRef._setData(res.data)
-      }
-    }))
+
   }
 
 
@@ -29,19 +23,27 @@ class GarbageBasket extends React.Component {
     this._clearTokens();
   }
   render() {
+    let id = this.props.match.params.id;
     return (
-      <div className={'createAlbum-wrap garbageBasket-wrap'}>
+      <div className={'createAlbum-wrap deleteThoroughly-wrap'}>
         <header>
           <Link to={{
-            pathname: '/'
+            pathname: `/garbageBasket/${id}`
           }}></Link>
           垃圾篓
         </header>
-        <div className={'garbageBasket-content'}>
-          <DeletePicture ref={ref => this.deletePictureRef = ref} />
+        <div className={'deleteThoroughly-content'}>
+
         </div>
+        <footer>
+          <ul>
+            <li>删除</li>
+            <li>恢复</li>
+          </ul>
+        </footer>
       </div>
+
     )
   }
 }
-export default GarbageBasket;
+export default DeleteThoroughly;

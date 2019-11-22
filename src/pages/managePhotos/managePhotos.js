@@ -17,14 +17,15 @@ class ManagePhotos extends React.Component {
   /**事件-------------------start */
   //选择
   choice(index) {
+    console.log(index)
     this.flags = !this.state.flag
     this.setState({
       flag: this.flags
     })
   }
   //点击单张图片
-  albumClick(index) {
-    let choicList = 'choic' + index;
+  albumClick(index,j) {
+    let choicList = 'choic' + index+j;
     let choic = this.refs[choicList]
     if (this.state.flag) {
       choic.className = 'active'
@@ -36,7 +37,6 @@ class ManagePhotos extends React.Component {
   //点击删除
   delete() {
     if (this.state.flag) {
-
       this.dialogRef._open()//出现弹框
     }
   }
@@ -61,9 +61,9 @@ class ManagePhotos extends React.Component {
         <ul ref={'list' + i}>
           {
             s.childs.map((s, j) => {
-              return <li key={'jx' + j}>
-                <img src={picture} alt='' ref={'album' + i} onClick={this.albumClick.bind(this, j)} />
-                <span ref={'choic' + j} className={this.state.flag ? 'default' : 'active'}
+              return <li key={'sm' + j}>
+                <img src={picture} alt='' ref={'album' + i} onClick={this.albumClick.bind(this,i, j)} />
+                <span ref={'choic' +i+ j} className={this.state.flag ? 'default' : 'active'}
                 ></span>
               </li>
             })
