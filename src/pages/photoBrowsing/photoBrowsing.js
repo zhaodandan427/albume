@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import './photoBrowsing.scss';
 import bg1 from './1.jpg';
 import LikeBtn from '../../components/point/point';
-
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -28,12 +27,27 @@ class PhotoBrowsing extends React.Component {
   //点击全文
   all() {
     this.text.innerHTML = '活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活'
-    this._all.style.opacity = 0
+    this._all.style.display = 'none'
   }
   //点击评论
-  commentClick() {
+  comment() {
+    this.foucusRef.style.display = 'block';
+    this.inputRef.focus()
+  }
+
+  //
+  sendClick() {
+    this.foucusRef.style.display = 'none';
+    console.log(this.inputRef.value)
+  }
+  //点击图片
+  imageIn(index) {
+    let list = 'imgIn' + index;
+    console.log(index)
 
   }
+
+  /*事件----------------------end */
   _addList() {
 
     let data = [{
@@ -66,8 +80,6 @@ class PhotoBrowsing extends React.Component {
     })
   }
 
-
-  /*事件-----------------------end*/
   render() {
     const flag = this.state.show;
     let id = this.props.match.params.id;
@@ -77,50 +89,62 @@ class PhotoBrowsing extends React.Component {
           <Link to='/'></Link>
           相册浏览
           <span onClick={this.select.bind(this)}></span>
-          
+
         </header>
         <div className={`dialog-wrap ${flag ? 'slidedown' : 'slideup'} `} >
-            <ul>
-              {
-                this.list.map((s, i) => {
-                  return <li key={'zl' + i}>
-                    <Link to={`/${s.pathname}/${id}`}>{s.name}</Link>
-                  </li>
-                })
-              }
-            </ul>
-          </div>
+          <ul>
+            {
+              this.list.map((s, i) => {
+                return <li key={'zl' + i}>
+                  <Link to={`/${s.pathname}/${id}`}>{s.name}</Link>
+                </li>
+              })
+            }
+          </ul>
+        </div>
         <div className={'detail-album'} ref={ref => this.detailAlbum = ref} style={{
           display: 'block'
         }}>
           <p ref={ref => this.text = ref}>活动文案活动文案活动文案活动文案活动文案活动 文案活动文案活动文案活动文案活...
             <span ref={ref => this._all = ref}
               style={{
-                opacity: 1
+                display: 'block'
               }}
               onClick={this.all.bind(this)}>全文</span>
           </p>
           <div className={'picture-list'}>
             <ul>
               {
-                this.state.data.map((s, i) => {
-                  return <li key={'js' + i}><img src={bg1} alt='' /></li>
+                this.state.data.map((s, index) => {
+                  return <li key={s + index} ref={'imgIn' + index} onClick={this.imageIn.bind(this, index)}><img src={bg1} alt='' /></li>
                 })
               }
-              < span className={'more'}><Link to={{
-                pathname: `/moreAlbum/${id}`,
-              }}>更多</Link></span>
+              < span className={'more'}>
+                <Link to={{
+                  pathname: `/moreAlbum/${id}`,
+                }}>更多</Link></span>
             </ul>
 
           </div>
           <div className={'comment-wrap'}>
             <h4 className={'timer'}>2019-10-12</h4>
             <div className={'comment-like'}>
-              <span className={'comment-items'} ><Link to={{
-                pathname: `/comment/${id}`
-              }}><i></i>评论(1000)</Link></span>
+              <span className={'comment-items'} onClick={this.comment.bind(this)}>
+                {/* <Link to={{
+                  pathname: `/comment/${id}`
+                }}>
+                  <i></i>评论(1000)</Link> */}
+                <i></i>评论
+              </span>
+
               <LikeBtn />
             </div>
+          </div>
+          <div ref={ref => this.foucusRef = ref} className={'shaixuan'} style={{
+            display: 'none'
+          }}>
+            <input ref={ref => this.inputRef = ref} placeholder='评论' />
+            <button onClick={this.sendClick.bind(this)}>发送</button>
           </div>
           <div className={'comment-wrap-list'}>
             <ul className={'comment-content-list'}>
@@ -128,7 +152,7 @@ class PhotoBrowsing extends React.Component {
             </ul>
           </div>
         </div>
-      </div >
+      </div>
     )
   }
 }

@@ -75,7 +75,7 @@
           color: #fff !important;
           position: absolute;
           left:9.2rem;
-          top:12.8rem
+          top:13.4rem
         }
        }
       }
@@ -152,6 +152,20 @@
           margin-top: .1rem;
         }
       }
+    }
+    .shaixuan{
+      width: 100%;
+      display: flex;
+      box-sizing: border-box;
+      padding: .4rem;
+      input{
+        height:.8rem;
+        border-radius: .1rem;
+        text-indent:.1rem;
+        border:1px solid #dedede
+
+      }
+      
     }
   }
  
