@@ -39,11 +39,11 @@ class PhotoBrowsing extends React.Component {
   sendClick() {
     this.foucusRef.style.display = 'none';
     console.log(this.inputRef.value)
+    this.inputRef.value=''
   }
   //点击图片
   imageIn(index) {
     let list = 'imgIn' + index;
-    console.log(index)
 
   }
 
