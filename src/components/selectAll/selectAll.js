@@ -98,7 +98,7 @@ class SelectAll extends React.Component {
                     ref={'album' + i}
                     onClick={this.albumClick.bind(this,s, i, j)}
                   />
-                  <span ref={'choic' + i + j} className={s.flag ? 'default' : 'active'} />
+                  <span ref={'choic' + i + j} className={this.state.flag[i] ? 'default' : 'active'} />
                 </li>
               );
             })}

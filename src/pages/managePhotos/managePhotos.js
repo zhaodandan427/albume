@@ -10,29 +10,25 @@ class ManagePhotos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      flag: [false, false]
     };
   }
 
   //点击删除
   delete() {
-    // let _flag = !this.state.flag[0];
-    // console.log(_flag)
-    // if (_flag) {
-      this.dialogRef._open(); //出现弹框
-    // }
+    this.dialogRef._open(); //出现弹框
   }
   //点击确认按钮
   confirm() {
-    const me=this;
+    const me = this;
     me._tokens.push(api.imgSrc.send({
     }).then(res => {
       if (res.code === 200) {
-       res.data.map((s,i)=>{
-         s.childs.map((item,j)=>{
-           console.log(item.flag)
-         })
-       })
+        res.data.map((s, i) => {
+          s.childs.map((item, j) => {
+            console.log(item.flag)
+          })
+        })
       }
     }))
   }
