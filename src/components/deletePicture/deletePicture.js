@@ -17,16 +17,20 @@ class Picture extends React.Component {
     return this.state.data.map((s, i) => {
       return <li key={'jx' + i}>
         <div>
-          <span>{s.title}</span>
+          <p>{s.title}</p>
           <Link to={{
             pathname: `/deleteThoroughly/${i}`,
             state: 'hello',
           }}><img alt='' src={picture} />
           </Link>
-          <div className={'footer-bom'}>
+          <div className={'footer-bom clearfix '}>
             <span className={'timer'}>{s.time}</span>
+            <b className={'fr'} style={{
+              fontWeight:'normal'
+            }}>
             <span className={'comment'}><i></i>评论 ({s.comment})</span>
             <span className={'fabulous'}><i></i>点赞 ({s.fabulous})</span>
+            </b>
           </div>
         </div>
       </li>

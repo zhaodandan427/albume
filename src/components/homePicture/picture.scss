@@ -9,7 +9,6 @@
     font-size: .42rem;
     color:#414042;
     h3{
-     margin-left: -8.6rem;
      font-size: .42rem;
      color:#414042;
      font-weight: bold;
@@ -18,14 +17,12 @@
     div{
       margin-left: 1.4rem;
       margin-top: .2rem;
-      span{
+      p{
         text-align: left;
-        max-width: 9.6rem;
+        width:100%;
         overflow: hidden; /* 溢出时不显示溢出的内容 */
         text-overflow: ellipsis; /* 发生溢出时使用省略号代替 */
-        display: -webkit-box; /* chrome浏览器的私有属性。显示为box。 */
-        -webkit-box-orient: vertical; /* 垂直排列元素 */
-        -webkit-line-clamp: 2; /* 显示多少行 */
+        white-space: nowrap;
       }
       img{
         width: 9.6rem;
@@ -41,33 +38,16 @@
         font-size: .36rem;
         position: relative;
         .comment{
-          margin-left: 4rem;
-          margin-top: -.6rem;
-          i{
-            width: .45rem;
-            height: .45rem;
-            background: url('/static/img/comment.png') no-repeat;
-            background-size:100% 100%;
-            display: block;
-            position: absolute;
-            left:3.5rem;
-            top:.04rem
-            
-          }
+          background: url('/static/img/comment.png') no-repeat left center;
+          background-size: .45rem;
+          padding-left: 0.5rem;
+          
         }
         .fabulous{
-          margin-left: 7.4rem;
-          margin-top: -.5rem;
-          i{
-            width: .45rem;
-            height: .45rem;
-            background: url('/static/img/heart.png') no-repeat;
-            background-size:100% 100%;
-            display: block;
-            position: absolute;
-            left:6.9rem;
-            top:.04rem
-          }
+          margin-left: .5rem;
+          background: url('/static/img/heart.png') no-repeat left center;
+          background-size: .45rem;
+          padding-left: 0.5rem;
         }
       }
     }

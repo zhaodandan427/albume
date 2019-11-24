@@ -45,7 +45,8 @@
             display: block;
             position: absolute;
             right:.1rem;
-            top:.1rem
+            top:.1rem;
+            pointer-events:none
           }
           .active{
             width:.6rem;

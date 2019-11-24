@@ -1,8 +1,8 @@
 //相册浏览
 import React from 'react';
 import { Link } from 'react-router-dom'
-import bg1 from '../photoBrowsing/1.jpg';
-import IscrollLuo from 'iscroll-luo';
+// import bg1 from '../photoBrowsing/1.jpg';
+import PullLoad from '../../components/pullLoading/pullLoding';
 class PhotoBrowsing extends React.Component {
   constructor(props) {
     super(props);
@@ -89,7 +89,8 @@ class PhotoBrowsing extends React.Component {
           </ul>
         </div>
         <div className={'picture-detail'}>
-          <IscrollLuo
+          <PullLoad />
+          {/* <IscrollLuo
             id='test'
             onPullDownRefresh={() => this.onDown()}
             onPullUpLoadMore={() => this.onUp()}
@@ -109,7 +110,8 @@ class PhotoBrowsing extends React.Component {
               })
             }
 
-          </IscrollLuo>
+          </IscrollLuo> */}
+
 
         </div>
       </div >

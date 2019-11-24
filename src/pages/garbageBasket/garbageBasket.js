@@ -8,6 +8,12 @@ class GarbageBasket extends React.Component {
     super(props);
     this.state = {}
   }
+  /*退回事件 */
+  goBack(){
+    console.log(this.props.history)
+    this.props.history.goBack();
+
+  }
   _tokens = [];
   _clearTokens() {
     this._tokens.forEach((token) => token.cancel());
@@ -32,9 +38,7 @@ class GarbageBasket extends React.Component {
     return (
       <div className={'createAlbum-wrap garbageBasket-wrap'}>
         <header>
-          <Link to={{
-            pathname: '/'
-          }}></Link>
+          <i onClick={this.goBack.bind(this)}></i>
           垃圾篓
         </header>
         <div className={'garbageBasket-content'}>

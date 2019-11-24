@@ -39,12 +39,15 @@ class PhotoBrowsing extends React.Component {
   sendClick() {
     this.foucusRef.style.display = 'none';
     console.log(this.inputRef.value)
-    this.inputRef.value=''
+    this.inputRef.value = ''
   }
   //点击图片
   imageIn(index) {
     let list = 'imgIn' + index;
-
+    let refs = this.refs[list];
+    console.log(refs)
+    refs.style.width = '100%'
+    refs.style.height = '100%'
   }
 
   /*事件----------------------end */
@@ -116,13 +119,18 @@ class PhotoBrowsing extends React.Component {
             <ul>
               {
                 this.state.data.map((s, index) => {
-                  return <li key={s + index} ref={'imgIn' + index} onClick={this.imageIn.bind(this, index)}><img src={bg1} alt='' /></li>
+                  return <li style={{
+                    width: '30%',
+                    height: '3.2rem'
+                  }} key={s + index} ref={'imgIn' + index} onClick={this.imageIn.bind(this, index)}>
+                    <img src={bg1} alt='' />
+                  </li>
                 })
               }
-              < span className={'more'}>
-                <Link to={{
-                  pathname: `/moreAlbum/${id}`,
-                }}>更多</Link></span>
+
+              <Link to={{
+                pathname: `/moreAlbum/${id}`,
+              }}>更多</Link>
             </ul>
 
           </div>

@@ -9277,6 +9277,13 @@ react-native-swipeout@^2.2.2:
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
 
+react-pullload@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/react-pullload/download/react-pullload-1.2.0.tgz#9631879d9135e3919dc2130b934751a2690e7a3b"
+  integrity sha1-ljGHnZE145GdwhMLk0dRomkOejs=
+  dependencies:
+    prop-types "^15.6.0"
+
 react-router-dom@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18"

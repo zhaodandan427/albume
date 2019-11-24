@@ -6,10 +6,51 @@ class SelectAll extends React.Component {
     this.state = {
       flag: [false, false],
       data: [
-        { title: '本周', childs: [1, 2, 3, 4, 5, 6, 7, 8, 9] },
-        { title: '本月', childs: [1, 2, 3, 4, 5, 6, 7, 8, 9] }
+        {
+          title: '本周', childs: [
+            {
+              "img1": '',
+              flag: false,
+              id: 0
+            },
+            {
+              "img2": '',
+              flag: false,
+              id: 1
+            },
+            {
+              "img3": '',
+              flag: false,
+              id: 2
+            }
+          ]
+        },
+        {
+          title: '本月', childs: [
+            {
+              "img1": '',
+              flag: false,
+              id: 0
+            },
+            {
+              "img2": '',
+              flag: false,
+              id: 1
+            },
+            {
+              "img3": '',
+              flag: false,
+              id: 2
+            }
+          ]
+        }
       ]
     }
+  }
+  _setData(d) {
+    this.setState({
+      data: d
+    })
   }
   //选择
   choice(index) {
@@ -20,7 +61,12 @@ class SelectAll extends React.Component {
     });
   }
   //点击单张图片
-  albumClick(index, j) {
+  albumClick(s,index, j) {
+    console.log(s.flag)
+    s.flag=!s.flag;
+    this.setState({
+      
+    })
     let choicList = 'choic' + index + j;
     let choic = this.refs[choicList];
     if (choic.className === 'default') {
@@ -34,6 +80,7 @@ class SelectAll extends React.Component {
     if (!me.state.data) {
       return;
     }
+    
     return me.state.data.map((s, i) => {
       return (
         <div className={'management-album-list'} key={'jx' + i}>
@@ -49,9 +96,9 @@ class SelectAll extends React.Component {
                     src={picture}
                     alt=""
                     ref={'album' + i}
-                    onClick={this.albumClick.bind(this, i, j)}
+                    onClick={this.albumClick.bind(this,s, i, j)}
                   />
-                  <span ref={'choic' + i + j} className={this.state.flag[i] ? 'default' : 'active'} />
+                  <span ref={'choic' + i + j} className={s.flag ? 'default' : 'active'} />
                 </li>
               );
             })}

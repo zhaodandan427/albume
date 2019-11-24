@@ -18,7 +18,7 @@ class Picture extends React.Component {
       return <li key={'jx' + i}>
         <h3>{s.date}</h3>
         <div>
-          <span>{s.title}</span>
+          <p>{s.title}</p>
           <Link to={{
             pathname: `/photoBrowsing/${i}`,
             state: 'hello',
@@ -26,8 +26,12 @@ class Picture extends React.Component {
           </Link>
           <div className={'footer-bom'}>
             <span className={'timer'}>{s.time}</span>
+            <b className={'fr'} style={{
+              fontWeight:'normal'
+            }}>
             <span className={'comment'}><i></i>评论 ({s.comment})</span>
             <span className={'fabulous'}><i></i>点赞 ({s.fabulous})</span>
+            </b>
           </div>
         </div>
       </li>

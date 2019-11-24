@@ -11,6 +11,7 @@
     position: fixed;
     left:0;
     top:0;
+    text-align: center;
     a{
       width: 1rem;
       height: 1rem;
@@ -51,7 +52,7 @@
       ul{
         display: flex;
         flex-wrap:wrap;
-        
+        position: relative;
         li{
           width: 30%;
           height: 3.2rem;
@@ -64,20 +65,26 @@
         }
        li:nth-child(9){
          background:black;
-        
+         position: relative;
+        //  &::after{
+        //     content: "更多";
+        //     display: block;
+        //  };
          img{
            opacity: 0.4;
          }
        }
-       .more{
+      
         a{
           font-size: .52rem;
           color: #fff !important;
           position: absolute;
-          left:9.2rem;
-          top:13.4rem
-        }
-       }
+          bottom: 0;
+          right: 0;
+          width: 30%;
+          text-align: center;
+          line-height: 3.2rem;
+          }
       }
     }
     .comment-wrap{
@@ -163,12 +170,9 @@
         border-radius: .1rem;
         text-indent:.1rem;
         border:1px solid #dedede
-
       }
-      
     }
   }
- 
 }
 .anticon {
   font-size:.36rem !important
@@ -190,6 +194,7 @@
     left:0;
     top:0;
     z-index: 100;
+    text-align: center;
     a{
       width: 1rem;
       height: 1rem;
@@ -219,7 +224,6 @@
     position: relative;
     
     h3{
-      margin-left: -10rem;
       margin-top: -.2rem;
     }
     ul{
@@ -239,5 +243,9 @@
     }
     
   }
+}
+.iscroll-luo-box .sl_scroller .scroller-content{
+  box-sizing: border-box;
+  padding: .1rem;
 }
 //头部公用
