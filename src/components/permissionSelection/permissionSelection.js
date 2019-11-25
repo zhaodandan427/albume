@@ -1,12 +1,13 @@
 import React from 'react';
 import headPortrait from './user.jpg';
 import './permissionSelection.scss';
+import { __values } from 'tslib';
 class PermissionSelection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       checkedList: [],
-      checkedAll: false,//全选
+      value: []
     }
   }
   _setData(d) {
@@ -23,24 +24,46 @@ class PermissionSelection extends React.Component {
     })
   }
   //全选
-  handleAllChange() {
-    console.log(11111)
-  }
-  //单个的选取
-  selected = (e, number) => {
+  handleAllChange(e, index) {
     e.checked = !e.checked;
     let data = this.state.data;
-    let checked = data[number].childs.map((s, i) => { return s.checked });
+    if (e.checked == true) {
+      data[index].childs.map((s, i) => { s.checked = true });
+      data[index].childs.map((s, i) => { return this.state.value.push(s.name) })
+    } else {
+      data[index].childs.map((s, i) => { s.checked = false });
+      data[index].childs.map((s, i) => { return this.state.value = [] })
+    }
+
     this.setState({
       checked: e.checked,
     })
+    this.props.selectAll(this.state.value)
+
+  }
+  //单个的选取
+  selected = (e, index, number) => {
+    e.checked = !e.checked;
+    console.log(e.checked)
+    let val = e.name;
+
+    if (e.checked === true) {
+      this.state.value.push(val)
+    } else {
+      this.state.value = []
+    }
+    this.setState({
+      checked: e.checked,
+      value: this.state.value
+    })
+    console.log(this.state.value)
+    this.props.singSelect(this.state.value)
   }
   _addList() {
     if (!this.state.data) { return };
     let datas = this.state.data;
     return datas.map((s, index) => {
       this.state.checkedList.push(false);
-
       if (!s.childs) { return };
       let children = s.childs;
       return <li key={s.title} className={'clearfix'}>
@@ -48,7 +71,7 @@ class PermissionSelection extends React.Component {
           <span >{s.title}</span>
           <i className={this.state.checkedList[index] ? 'showi' : 'hidei'} ></i>
         </p>
-        <input type='checkbox' className={'e-selfecheckbox'} onChange={this.handleAllChange.bind(this, s)} />
+        <input type='checkbox' value={this.state.value || ''} className={'e-selfecheckbox'} checked={s.checked} onChange={this.handleAllChange.bind(this, s, index)} />
         <ol className={`mailList-secondContent ${this.state.checkedList[index] ? 'slideups' : 'slidedowns'}`}>
           {
             children.map((item, number) => {
@@ -60,10 +83,10 @@ class PermissionSelection extends React.Component {
                     <img src={headPortrait} alt='' />
                   </dt>
                   <dd>
-                    <span className={'userName'}>张委员</span><br />
-                    <span className={'userNum'}>12300</span>
+                    <span className={'userName'}>{item.name}</span><br />
+                    <span className={'userNum'}>{item.num}</span>
                   </dd>
-                  <input type='checkbox' className={'e-selfecheckbox'} checked={item.checked} onChange={this.selected.bind(this, item, number)} />
+                  <input type='checkbox' value={this.state.value || ''} className={'e-selfecheckbox'} checked={item.checked} onChange={this.selected.bind(this, item, index, number)} />
                 </dl>
               </li>
             })

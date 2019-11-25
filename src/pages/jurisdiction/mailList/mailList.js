@@ -26,6 +26,14 @@ class MailList extends React.Component {
   componentWillUnmount() {
     this._clearTokens();
   }
+  //多选
+  _singVal(e) {
+    // console.log(e)
+  }
+  //全选
+  _allValue(e) {
+    // console.log(e)
+  }
   render() {
     return (
       <div className={'createAlbum-wrap mailList-wrap'}>
@@ -35,7 +43,7 @@ class MailList extends React.Component {
         <Link to={'/jurisdiction'}><span>完成</span></Link>
         </header>
         <div className={'mailList-content'}>
-          <Maillist ref={ref => this.mailListRef = ref} />
+          <Maillist ref={ref => this.mailListRef = ref} singSelect={this._singVal.bind(this)} selectAll={this._allValue.bind(this)} />
         </div>
       </div>
     )

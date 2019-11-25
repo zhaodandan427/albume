@@ -8,7 +8,6 @@ export default class Uploadfiels extends React.Component {
     };
     this.imgs = this.imgsRef;
 
-
   }
   onChange = (e) => {
     var fileData = this.files.files[0];//获取到一个FileList对象中的第一个文件( File 对象),是我们上传的文件

@@ -99,66 +99,7 @@ class HomePage extends React.Component {
   }
 
   /*事件------------------------------end */
-
-
-  //数据渲染
-  render() {
-    const flag0 = this.state.showTime;
-    const flag1 = this.state.showCommon;
-    const flag2 = this.state.sortingPoint;
-    const flag = this.state.show;
-    return (
-      <div className={'hompage-wrap'}>
-        <div className={'homepage-items'} ref={ref => this.header = ref} style={{
-          display: 'block'
-        }}>
-          <header>
-            <span onClick={this.goComBack.bind(this)}></span>
-            <span>活动相册</span>
-            <span className={'search'} onClick={this.search.bind(this)}></span>
-            <span className={'select'} onClick={this.select.bind(this)}></span>
-            <div className={`dialog-wrap ${flag ? 'slidedown' : 'slideup'} `} >
-          <ul>
-            {
-              this.list.map((s, i) => {
-                return <li key={'zl' + i}>
-                  <Link to={`/${s.pathname}`}>{s.name}</Link>
-                </li>
-              })
-            }
-          </ul>
-        </div>
-          </header>
-          <ul className={'sort-wrap'}>
-            <li><span>时间</span><span onClick={this.sortingTime.bind(this)} className={flag0 ? 'hidei' : 'showi'}></span></li>
-            <li><span>评论</span><span onClick={this.sortinCommon.bind(this)} className={flag1 ? 'hidei' : 'showi'}></span></li>
-            <li><span>点赞</span><span onClick={this.sortingPoint.bind(this)} className={flag2 ? 'hidei' : 'showi'}></span></li>
-          </ul>
-        </div>
-        <div className={'content'}>
-          <Picture ref={ref => this.pictureList = ref} />
-        </div>
-        
-        <div className={'search-wrap'} ref={ref => this.searchWrap = ref} style={{
-          display: 'none'
-        }}>
-          <input type="text" name="search"
-            onChange={this.searchHandler.bind(this)}
-            onFocus={this.inputOnFocus.bind(this)}
-            ref={ref => this.inputRef = ref}
-          />
-          <span className={'delete'}
-            ref={ref => this.deleteRef = ref}
-            style={{ opacity: 0 }}
-            onClick={this.clear.bind(this)}
-          >
-          </span>
-          <span onClick={this.cancel.bind(this)}>取消</span>
-        </div>
-      </div >
-    )
-  }
-
+  //相册列表
 
   _tokens = [];
   _clearTokens() {
@@ -179,6 +120,63 @@ class HomePage extends React.Component {
 
   componentWillUnmount() {
     this._clearTokens();
+  }
+  //数据渲染
+  render() {
+    const flag0 = this.state.showTime;
+    const flag1 = this.state.showCommon;
+    const flag2 = this.state.sortingPoint;
+    const flag = this.state.show;
+    return (
+      <div className={'hompage-wrap'}>
+        <div className={'homepage-items'} ref={ref => this.header = ref} style={{
+          display: 'block'
+        }}>
+          <header>
+            <span onClick={this.goComBack.bind(this)}></span>
+            <span>活动相册</span>
+            <span className={'search'} onClick={this.search.bind(this)}></span>
+            <span className={'select'} onClick={this.select.bind(this)}></span>
+            <div className={`dialog-wrap ${flag ? 'slidedown' : 'slideup'} `} >
+              <ul>
+                {
+                  this.list.map((s, i) => {
+                    return <li key={'zl' + i}>
+                      <Link to={`/${s.pathname}`}>{s.name}</Link>
+                    </li>
+                  })
+                }
+              </ul>
+            </div>
+          </header>
+          <ul className={'sort-wrap'}>
+            <li><span>时间</span><span onClick={this.sortingTime.bind(this)} className={flag0 ? 'hidei' : 'showi'}></span></li>
+            <li><span>评论</span><span onClick={this.sortinCommon.bind(this)} className={flag1 ? 'hidei' : 'showi'}></span></li>
+            <li><span>点赞</span><span onClick={this.sortingPoint.bind(this)} className={flag2 ? 'hidei' : 'showi'}></span></li>
+          </ul>
+        </div>
+        <div className={'content'}>
+          <Picture ref={ref => this.pictureList = ref} />
+        </div>
+
+        <div className={'search-wrap'} ref={ref => this.searchWrap = ref} style={{
+          display: 'none'
+        }}>
+          <input type="text" name="search"
+            onChange={this.searchHandler.bind(this)}
+            onFocus={this.inputOnFocus.bind(this)}
+            ref={ref => this.inputRef = ref}
+          />
+          <span className={'delete'}
+            ref={ref => this.deleteRef = ref}
+            style={{ opacity: 0 }}
+            onClick={this.clear.bind(this)}
+          >
+          </span>
+          <span onClick={this.cancel.bind(this)}>取消</span>
+        </div>
+      </div >
+    )
   }
 }
 export default HomePage;
