@@ -1,0 +1,56 @@
+
+.fileBox{
+     width: 100%;
+  .warp {
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+    .warp-content {
+      border: 1px solid #ccc;
+      width: 150px;
+        height: 150px;
+      line-height: 3.2px;
+      text-align: center;
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid #ccc;
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 99;
+      }
+      #imgs{
+        width: 150px;
+        height: 150px;
+        border: 1px solid red;
+        margin-top: 50px;
+        vertical-align: bottom;
+        position: absolute;
+        left: 0px;
+        top: -50px;
+      
+      }
+      span {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        right: -13px;
+        top: 0;
+        z-index: 100;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+

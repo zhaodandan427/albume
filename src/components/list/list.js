@@ -33,7 +33,6 @@ export default class AccordionExmple extends React.Component {
   }
   checkoutChange = (e, val) => {
     this.props.changvalues(e, val)
-
   }
   chooseAll() {
 
@@ -83,13 +82,10 @@ export default class AccordionExmple extends React.Component {
                   </List.Item>
                 </List>
               </Accordion.Panel>
-             
+
             </Accordion>
           })
         }
-
-
-
       </div >
     );
   }

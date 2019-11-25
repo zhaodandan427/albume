@@ -5,9 +5,8 @@ class PermissionSelection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: [],
-      check: false,
-      checks: false,
+      checkedList: [],
+      checkedAll: false,//全选
     }
   }
   _setData(d) {
@@ -15,38 +14,42 @@ class PermissionSelection extends React.Component {
       data: d
     })
   }
+  //点击列表上升下降
   slide(index) {
-    let _flag = this.state.checked;
+    let _flag = this.state.checkedList;
     _flag[index] = !_flag[index];
     this.setState({
       checked: _flag
     })
   }
   //全选
-  showInput = (e) => {//全选和全不全
-    console.log(e.target.checked);
+  handleAllChange() {
+    console.log(11111)
+  }
+  //单个的选取
+  selected = (e, number) => {
+    e.checked = !e.checked;
+    let data = this.state.data;
+    let checked = data[number].childs.map((s, i) => { return s.checked });
     this.setState({
-      check: e.target.checked,
-      checks: e.target.checked,
+      checked: e.checked,
     })
   }
-
   _addList() {
-    const flag = this.state.show;
     if (!this.state.data) { return };
     let datas = this.state.data;
     return datas.map((s, index) => {
-      this.state.checked.push(false)
+      this.state.checkedList.push(false);
 
       if (!s.childs) { return };
       let children = s.childs;
-      return <li key={s.title}>
+      return <li key={s.title} className={'clearfix'}>
         <p onClick={this.slide.bind(this, index)}>
           <span >{s.title}</span>
-          <i className={this.state.checked[index] ? 'showi' : 'hidei'} ></i>
+          <i className={this.state.checkedList[index] ? 'showi' : 'hidei'} ></i>
         </p>
-        <input type='checkbox' className={'e-selfecheckbox'} checked={this.state.check} onChange={this.showInput} />
-        <ol className={`mailList-secondContent ${this.state.checked[index] ? 'slideups' : 'slidedowns'}`}>
+        <input type='checkbox' className={'e-selfecheckbox'} onChange={this.handleAllChange.bind(this, s)} />
+        <ol className={`mailList-secondContent ${this.state.checkedList[index] ? 'slideups' : 'slidedowns'}`}>
           {
             children.map((item, number) => {
               return <li key={item.num}>
@@ -60,7 +63,7 @@ class PermissionSelection extends React.Component {
                     <span className={'userName'}>张委员</span><br />
                     <span className={'userNum'}>12300</span>
                   </dd>
-                  <input type='checkbox' className={'e-selfecheckbox'} checked={this.state.checks} />
+                  <input type='checkbox' className={'e-selfecheckbox'} checked={item.checked} onChange={this.selected.bind(this, item, number)} />
                 </dl>
               </li>
             })

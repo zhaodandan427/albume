@@ -1,16 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './createAlbum.scss';
-import PicturesWall from '../../components/upload/upload';
-
+import Uploader from '../../components/uploadFiles/uploadFiles';
+import { ImagePicker } from 'antd-mobile';
+const data = [{
+  url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
+  id: '2121',
+}, {
+  url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
+  id: '2122',
+}];
 class CreateAlbum extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      files: data,
+      multiple: false,
     }
   }
-
+  onChange = (files, type, index) => {
+    console.log(files, type, index);
+    this.setState({
+      files,
+    });
+  }
+  onSegChange = (e) => {
+    const index = e.nativeEvent.selectedSegmentIndex;
+    this.setState({
+      multiple: index === 1,
+    });
+  }
   render() {
+    const { files } = this.state;
     return (
       <div className={'createAlbum-wrap'}>
         <header>
@@ -25,12 +46,20 @@ class CreateAlbum extends React.Component {
               color: '#414042'
             }}>xx相册介绍</div>
             <div className={'image-picker'}>
-              <PicturesWall />
+              <ImagePicker
+                files={files}
+                onChange={this.onChange}
+                onImageClick={(index, fs) => console.log(index, fs)}
+                selectable={files.length < 9}
+                multiple={this.state.multiple}
+                length={3}
+              />
             </div>
           </div>
           <div className={'album-face'}>
             <p>相册封面</p>
             <div className={'up-load'}>
+              <Uploader />
             </div>
           </div>
           <div className={'jurisdiction'}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ImagePicker } from 'antd-mobile';
+
 const data = [{
   url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
   id: '2121',
