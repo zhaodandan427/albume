@@ -1,0 +1,13 @@
+* {margin: 0;padding: 0;}
+        .clearfix::before, .clearfix::after {
+            display: block;
+            content: '';
+            visibility: hidden;
+            height: 100%;
+            clear: both;
+        }
+        body {padding-top: 2%;}
+        .my-gallery {width:96%;margin: 0 auto;}
+        .my-gallery .img-dv {width:100%;margin-bottom: 1%;}
+        .my-gallery .img-dv a {display:block;width:100%;text-align: center}
+        .my-gallery .img-dv a img {width:100%;}

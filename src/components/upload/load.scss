@@ -1,0 +1,22 @@
+content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px; 
+  overflow: hidden;
+  .item{
+      height: 80px;
+      background-color: #eee;
+  }
+  .loading {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: url('/static/img/loading.gif');
+      background-size: cover;
+  }
+}

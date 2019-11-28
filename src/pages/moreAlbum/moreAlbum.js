@@ -1,7 +1,7 @@
 //相册浏览
 import React from 'react';
 import { Link } from 'react-router-dom'
-// import bg1 from '../photoBrowsing/1.jpg';
+import bg1 from '../photoBrowsing/1.jpg';
 import PullLoad from '../../components/pullLoading/pullLoding';
 class PhotoBrowsing extends React.Component {
   constructor(props) {
@@ -32,36 +32,15 @@ class PhotoBrowsing extends React.Component {
       show: flag
     })
   }
-  onDown() {
-    this.setState({
-      data: [
-        {
-          name: '本周',
-          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        },
-        {
-          name: '本月',
-          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        },
-      ]
-    });
-  }
 
-  onUp() {
-    this.setState({
-      data: [
-        ...this.state.data,
-        {
-          name: '本周',
-          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        },
-        {
-          name: '本月',
-          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        },
-      ]
+  imgPic(currentIndex, imageArray) {
+    var options = {
+      index: currentIndex
+    }
 
-    });
+    var pswpElement = this.refs.pswb;
+    var gallery = new PhotoSwipe(pswpElement, UI, items, options)
+    gallery.init()
   }
 
   /*事件-----------------------end*/
@@ -89,30 +68,48 @@ class PhotoBrowsing extends React.Component {
           </ul>
         </div>
         <div className={'picture-detail'}>
-          <PullLoad />
-          {/* <IscrollLuo
-            id='test'
-            onPullDownRefresh={() => this.onDown()}
-            onPullUpLoadMore={() => this.onUp()}
-          >
+          {/* <PullLoad /> */}
+          <ul>
             {
-              this.state.data.map((s, i) => {
-                return <div key={'js' + i}>
-                  <h3>{s.name}</h3>
-                  <ul>
-                    {
-                      s.lists.map((item, j) => {
-                        return <li key={'js' + j}><img src={bg1} alt='' /></li>
-                      })
-                    }
-                  </ul>
-                </div>
+              this.list.map((s, i) => {
+                return <li key={'jsx' + i}><img src={bg1} onClick={this.imgPic.bind(this, i)} /></li>
               })
             }
+          </ul>
 
-          </IscrollLuo> */}
-
-
+        </div>
+        <div className="pswp" ref="pswb" role="dialog" aria-hidden="true">
+          <div className="pswp__bg"></div>
+          <div className="pswp__scroll-wrap">
+            <div className="pswp__container">
+              <div className="pswp__item"></div>
+              <div className="pswp__item"></div>
+              <div className="pswp__item"></div>
+            </div>
+            <div className="pswp__ui pswp__ui--hidden">
+              <div className="pswp__top-bar">
+                <div className="pswp__counter"></div>
+                <button className="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <div className="pswp__preloader">
+                  <div className="pswp__preloader__icn">
+                    <div className="pswp__preloader__cut">
+                      <div className="pswp__preloader__donut"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div className="pswp__share-tooltip"></div>
+              </div>
+              <button className="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+              </button>
+              <button className="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+              </button>
+              <div className="pswp__caption">
+                <div className="pswp__caption__center"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div >
     )
